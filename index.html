@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="styles.css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <img class="header__nav-svg" src="images/logo.png">
+            <a href="" class="header__nav-item">Манки</a>
+            <a href="" class="header__nav-item">Вопрос-ответ</a>
+            <a href="" class="header__nav-item">Почему мы?</a>
+            <a href="" class="header__nav-item">Отзывы</a>
+            <a href="" class="header__nav-item">Контакты</a>
+        </nav>
+    </header>
+    <div class="content wrapper">
+        <h1 class="content__title">Электронные манки с влагозащитой, звучанием до 8 км и гарантией 12 месяцев</h1>
+        <img class="content__img" src="images/102-220-1072-electronnyi-manok-hunter-sound-q-9.png">
+        <div class="content__phone-block">
+            <h3 class="content__offer">Закажите манок до 31 января и получите LED фонарь в подарок!</h3>
+            <a href="tel:88123174304" class="content__phone">8 (812) 317-4304</a>
+            <a href="" class="content__callme open-modal-btn">Заказать обратный звонок</a>
+        </div>
+    </div>
+    <script>
+        var wrap = $('#wrapper'),
+            btn = $('.open-modal-btn'),
+            modal = $('.cover, .modal, .content');
+
+        btn.on('click', function () {
+            modal.fadeIn();
+        });
+
+        // close modal
+        $('.modal').click(function () {
+            wrap.on('click', function (event) {
+                var select = $('.content');
+                if ($(event.target).closest(select).length)
+                    return;
+                modal.fadeOut();
+                wrap.unbind('click');
+            });
+        });
+    </script>
+</body>
+
+</html>
